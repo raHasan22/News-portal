@@ -30,9 +30,9 @@ const displayNews = (newses) =>{
     `;
     const newsesDiv = document.getElementById('newsesDiv')
     newsesDiv.innerHTML = ``;
-    console.log(newses.length)
+    // console.log(newses.length)
     for(const news of newses){
-        // console.log(news);
+         console.log(news);
         const newsDiv = document.createElement('div');
         newsDiv.innerHTML = `
         <div class="card mb-3 shadow">
@@ -53,7 +53,7 @@ const displayNews = (newses) =>{
                         Views: ${news.total_view ? news.total_view : 'No data found'}
                       </div>
                       <div>
-                        <button class="btn btn-primary">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                           Details
                         </button>
                       </div>
