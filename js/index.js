@@ -53,7 +53,7 @@ const displayNews = (newses) =>{
                         Views: ${news.total_view ? news.total_view : 'No data found'}
                       </div>
                       <div>
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button onclick="showDetails('${news._id}')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                           Details
                         </button>
                       </div>
@@ -64,5 +64,27 @@ const displayNews = (newses) =>{
             </div>
         `;
         newsesDiv.appendChild(newsDiv);
+    }
+}
+const showDetails = (id) => {
+    const url = `https://openapi.programming-hero.com/api/news/${id}`
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displaydetails(data.data))
+}
+function displaydetails(Informations){
+    const newsTitle = document.getElementById('news-title')
+        newsTitle.innerText = ``;
+        const newsDetails = document.getElementById('news-details')
+        newsDetails.innerText =``;
+    for( const info of Informations){
+        
+        newsTitle.innerText = `
+        ${info.title}
+        `;
+        
+        newsDetails.innerText =`
+        ${info.details}
+        `;
     }
 }
