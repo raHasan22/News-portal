@@ -9,7 +9,7 @@
   <body>
     <header>
       <!-- navbar -->
-      <section>
+      <section class="container">
         <nav class="navbar navbar-expand-lg bg-light shadow">
           <div class="container-fluid">
             <a class="navbar-brand fw-bolder fs-1" href="#">Everyday News</a>
@@ -42,14 +42,47 @@
         </nav>
       </section>
       <!-- catagories -->
-      <section class="mx-4 my-3">
-        <div class="d-flex justify-content-between flex-warp px-3">
-          <button class="btn btn-outline-light text-dark fw-semibold">
-            
-          </button>
+      <section class="container my-3">
+        <div id="category" class="d-flex justify-content-between flex-warp px-3 container">
         </div>
       </section>
     </header>
+    <main>
+      <!-- newses -->
+      <section class="container my-3">
+        <div class="p-3">
+          <div>
+            <div class="card mb-3">
+              <div class="row g-0">
+                <div class="col-md-3">
+                  <img src="..." class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-9">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex">
+                        <img src="" alt="">
+                        <p>name</p>
+                      </div>
+                      <div>
+                        Views: 1.5M
+                      </div>
+                      <div>
+                        <button class="btn btn-primary">
+                          Details
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script src="js/index.js"></script>
   </body>
