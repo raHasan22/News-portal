@@ -32,7 +32,7 @@ const displayNews = (newses) =>{
     newsesDiv.innerHTML = ``;
     // console.log(newses.length)
     for(const news of newses){
-         console.log(news);
+        //  console.log(news);
         const newsDiv = document.createElement('div');
         newsDiv.innerHTML = `
         <div class="card mb-3 shadow">
