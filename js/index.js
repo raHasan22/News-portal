@@ -24,7 +24,39 @@ function loadNews(categoryId){
     .then(data => displayNews(data.data))
 }
 const displayNews = (newses) =>{
+    const newsesDiv = document.getElementById('newsesDiv')
     for(const news of newses){
-        console.log(news.total_view)
+        console.log(news);
+        const newsDiv = document.createElement('div');
+        newsDiv.innerHTML = `
+        <div class="card mb-3">
+              <div class="row g-0">
+                <div class="col-md-3 p-2">
+                  <img src="${news.thumbnail_url}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-9 p-2">
+                  <div class="card-body">
+                    <h5 class="card-title">${news.title}</h5>
+                    <p class="card-text">${news.details}</p>
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex">
+                        <img style="height: 50px; width: 50px;" class="rounded-circle" src="${news.author.img}" alt="">
+                        <p>${news.author.name}</p>
+                      </div>
+                      <div>
+                        Views: ${news.total_view}
+                      </div>
+                      <div>
+                        <button class="btn btn-primary">
+                          Details
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        `;
+        newsesDiv.appendChild(newsDiv);
     }
 }
