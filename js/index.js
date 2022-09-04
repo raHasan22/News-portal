@@ -24,13 +24,18 @@ function loadNews(categoryId){
     .then(data => displayNews(data.data))
 }
 const displayNews = (newses) =>{
+    const info = document.getElementById('info-news');
+    info.innerHTML = `
+    <p class="text-center fw-bold fs-4 px-4"> ${newses.length} news found</p>
+    `;
     const newsesDiv = document.getElementById('newsesDiv')
     newsesDiv.innerHTML = ``;
+    console.log(newses.length)
     for(const news of newses){
-        console.log(news);
+        // console.log(news);
         const newsDiv = document.createElement('div');
         newsDiv.innerHTML = `
-        <div class="card mb-3">
+        <div class="card mb-3 shadow">
               <div class="row g-0">
                 <div class="col-md-3 p-2">
                   <img src="${news.thumbnail_url}" class="img-fluid rounded-start" alt="...">
@@ -42,10 +47,10 @@ const displayNews = (newses) =>{
                     <div class="d-flex justify-content-between py-2">
                       <div class="d-flex">
                         <img style="height: 50px; width: 50px;" class="rounded-circle" src="${news.author.img}" alt="">
-                        <p>${news.author.name}</p>
+                        <p>${news.author.name ? news.author.name : 'No data found'}</p>
                       </div>
                       <div>
-                        Views: ${news.total_view}
+                        Views: ${news.total_view ? news.total_view : 'No data found'}
                       </div>
                       <div>
                         <button class="btn btn-primary">
