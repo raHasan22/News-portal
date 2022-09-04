@@ -25,6 +25,7 @@ function loadNews(categoryId){
 }
 const displayNews = (newses) =>{
     const newsesDiv = document.getElementById('newsesDiv')
+    newsesDiv.innerHTML = ``;
     for(const news of newses){
         console.log(news);
         const newsDiv = document.createElement('div');
@@ -36,9 +37,9 @@ const displayNews = (newses) =>{
                 </div>
                 <div class="col-md-9 p-2">
                   <div class="card-body">
-                    <h5 class="card-title">${news.title}</h5>
-                    <p class="card-text">${news.details}</p>
-                    <div class="d-flex justify-content-between">
+                    <h5 class="card-title py-3">${news.title}</h5>
+                    <p class="card-text py-3">${news.details.slice(0, 200)+ '...'}</p>
+                    <div class="d-flex justify-content-between py-2">
                       <div class="d-flex">
                         <img style="height: 50px; width: 50px;" class="rounded-circle" src="${news.author.img}" alt="">
                         <p>${news.author.name}</p>
