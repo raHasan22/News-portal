@@ -6,7 +6,7 @@ const loadCategories = () =>{
 const displayCategories = (categories) =>{
     const categoriesDiv = document.getElementById('category')
     for(const category of categories){
-        console.log(category);
+        // console.log(category);
         const categoryDiv = document.createElement('div')
         categoryDiv.innerHTML = `
         <button onclick="loadNews('${category.category_id}')" class="btn btn-outline-light text-dark fw-semibold">
@@ -18,5 +18,13 @@ const displayCategories = (categories) =>{
 }
 loadCategories();
 function loadNews(categoryId){
-    console.log(categoryId);
+    const url = `https://openapi.programming-hero.com/api/news/category/${categoryId}`
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayNews(data.data))
+}
+const displayNews = (newses) =>{
+    for(const news of newses){
+        console.log(news.total_view)
+    }
 }
